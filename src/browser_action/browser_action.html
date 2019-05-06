@@ -1,0 +1,87 @@
+<!doctype html>
+<style type="text/css">
+body {
+  background: #20262E;
+  padding: 20px;
+  font-family: Helvetica;
+  font-size: 100%;
+}
+
+#app {
+  border-radius: 4px;
+  padding: 20px;
+  transition: all 0.2s;
+  width: 500px;
+}
+
+li {
+  margin: 8px 0;
+}
+
+h2 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+del {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.world-red {
+  background-color: #e13b2a;
+  color: white;
+}
+
+.world-green {
+  background-color: #3bc373;
+  color: white;
+}
+
+.world-blue {
+  background-color: #3fa2f4;
+  color: white;
+}
+
+.match {
+  padding: 3px;
+}
+
+.world {
+  display: inline-block;
+  padding: 3px 5px;
+  border-radius: 4px;
+}
+
+small {
+  font-size: 75%;
+}
+
+.xs {
+  font-size: 65%;
+}
+</style>
+
+<div id="app">
+	<!--<button v-on:click="download()">Click</button>
+	<button v-on:click="test()">Test</button>
+	<br><br>-->
+  
+	<div class="match" v-for="match in matches">
+	  <span class="world world-green">{{ match.worlds.green }} <br>
+		<small v-for="plusWorld in match.plusWorlds.green">+{{ plusWorld }} </small><br>
+		<span class="xs">{{ match.victoryPoints.green }} / {{ match.scores.green }}</span>
+	  </span>
+	  <span class="world world-red">{{ match.worlds.red }} <br>
+		<small v-for="plusWorld in match.plusWorlds.red">+{{ plusWorld }} </small><br>
+		<span class="xs">{{ match.victoryPoints.red }} / {{ match.scores.red }}</span>
+	  </span>
+	  <span class="world world-blue">{{ match.worlds.blue }} <br>
+		<small v-for="plusWorld in match.plusWorlds.blue">+{{ plusWorld }} </small><br>
+		<span class="xs">{{ match.victoryPoints.blue }} / {{ match.scores.blue }}</span>
+	  </span>
+	</div>
+  </div>
+
+  <script type="text/javascript" src="../../js/vue.min.js"></script>
+  <script type="text/javascript" src="../../js/axios.min.js"></script>
+  <script type="text/javascript" src="browser_action.js"></script>
